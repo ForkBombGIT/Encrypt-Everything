@@ -8,7 +8,7 @@ function rotEncrypt(val,rot) {
       minVal = (val.charAt(i) == val.charAt(i).toUpperCase()) ? 65 : 97;
       maxVal = (val.charAt(i) == val.charAt(i).toUpperCase()) ? 90 : 122;
       console.log(val.charCodeAt(i))
-      newString += ((val.charCodeAt(i) + rot) < maxVal) ? (String.fromCharCode(val.charCodeAt(i) + rot)) :
+      newString += ((val.charCodeAt(i) + rot) <= maxVal) ? (String.fromCharCode(val.charCodeAt(i) + rot)) :
                                                           (String.fromCharCode((minVal + ((val.charCodeAt(i) + rot) - maxVal)) - 1));
     } else newString += val.charAt(i);
   }
