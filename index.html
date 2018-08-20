@@ -1,11 +1,39 @@
 <html>
-  <head>
-    <title>Encrypt Everything</title>
-    <link rel="stylesheet" href="./stylesheets/styles.css"/>
-    <link rel="stylesheet" href="../../dist/css/normalize.css">
-    <link rel="stylesheet" href="../../dist/css/skeleton.css">
-  </head>
-  <body>
-    <h1>Encrypt Everything</h1>
-  </body>
+
+<head>
+  <title>Encrypt Everything</title>
+  <link rel="stylesheet" href="./stylesheets/styles.css" />
+  <link rel="stylesheet" href="./stylesheets/normalize.css">
+  <link rel="stylesheet" href="./stylesheets/skeleton.css">
+
+  <script src="./scripts/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>ENCRYPT EVERYTHING</h1>
+    <p>A simple tool for encrypting and decrypting strings</p>
+
+    <label for="cipherselection">Select a Cipher:</label>
+    <select id="cipherselection">
+        <option selected></option>
+        <option value="rot">ROT</option>
+    </select>
+
+    <div id="rotamount" hidden>
+      <input onkeydown="return false" type="number" id="numberofrot" min="0" max="25"/>
+    </div>
+
+    <label for="inputbox">Input a String:</label>
+    <input id="inputbox" type="text" placeholder="ex: The cow jumped over the moon" />
+    <input id="submitbtn" value="Encrypt" type="submit">
+
+    <label for="outputbox">Output</label>
+    <textarea id="outputbox" style="resize:none"></textarea>
+  </div>
+
+  <script src="./scripts/encryptify.js"></script>
+  <script src="./scripts/main.js"></script>
+</body>
+
 </html>
