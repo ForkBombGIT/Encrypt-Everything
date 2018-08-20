@@ -11,9 +11,10 @@
 
 <body>
   <div class="container">
+    <header>
     <h1>ENCRYPT EVERYTHING</h1>
-    <p>A simple tool for encrypting and decrypting strings</p>
-
+    <p><i>  A simple tool for encrypting and decrypting strings</i></p>
+  </header>
     <label for="cipherselection">Select a Cipher:</label>
     <select id="cipherselection">
         <option selected></option>
@@ -26,7 +27,8 @@
 
     <label for="inputbox">Input a String:</label>
     <input id="inputbox" type="text" placeholder="ex: The cow jumped over the moon" />
-    <input id="submitbtn" value="Encrypt" type="submit">
+    <input id="encryptbtn" value="Encrypt" type="submit">
+    <input id="decryptbtn" value="Decrypt" type="submit">
 
     <label for="outputbox">Output</label>
     <textarea id="outputbox" style="resize:none"></textarea>

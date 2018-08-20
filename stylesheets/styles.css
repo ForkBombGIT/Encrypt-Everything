@@ -3,6 +3,8 @@ h1 {
   font-size: 45px !important;
   letter-spacing: 4px !important;
   font-weight: bold !important;
+  margin-bottom: 5px !important;
+  border-bottom: 2px solid black;
 }
 
 #inputbox{

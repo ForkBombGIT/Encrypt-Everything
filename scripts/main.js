@@ -12,7 +12,7 @@ $("#cipherselection").on('change', function(){
 });
 
 //handles submit button
-$("#submitbtn").on("click", function() {
+$("#encryptbtn").on("click", function() {
   var cipher = $("#cipherselection").find(":selected").text();
   if (cipher != "") {
     var input = $("#inputbox").val();
