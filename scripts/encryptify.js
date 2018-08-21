@@ -47,18 +47,26 @@ function baconianEncrypt(val, enc) {
     'z': 'bbaab'
   }
 
-  for (var i = 0; i < val.length; i++) {
-    if (isNaN(parseInt(val.charAt(i)), 10) && !(val.charAt(i).match(/^[.,:!?]/)) && !(val.charAt(i) == ' ' ||
-        val.charAt(i) == '\t' ||
-        val.charAt(i) == '\n' ||
-        val.charAt(i) == '\r')) {
-      if (enc)
-        newString += baconianConvertions[val.charAt(i).toLowerCase()];
-      else{
-
-      }
-    } else newString += val.charAt(i);
+  if (enc){
+    for (var i = 0; i < val.length; i++) {
+      if (isNaN(parseInt(val.charAt(i)), 10) && !(val.charAt(i).match(/^[.,:!?]/)) && !(val.charAt(i) == ' ' ||
+          val.charAt(i) == '\t' ||
+          val.charAt(i) == '\n' ||
+          val.charAt(i) == '\r')) {
+          newString += baconianConvertions[val.charAt(i).toLowerCase()];
+      } else newString += val.charAt(i);
+    }
   }
-
+  else {
+    for (var i = 0; i < val.length; i++) {
+      if (isNaN(parseInt(val.charAt(i)), 10) && !(val.charAt(i).match(/^[.,:!?]/)) && !(val.charAt(i) == ' ' ||
+          val.charAt(i) == '\t' ||
+          val.charAt(i) == '\n' ||
+          val.charAt(i) == '\r')) {
+          newString +=  _.findKey(baconianConvertions, function(v) { return v === val.substring(i,i+5);  });
+          i+=4;
+      } else newString += val.charAt(i);
+    }
+  }
   return newString;
 }

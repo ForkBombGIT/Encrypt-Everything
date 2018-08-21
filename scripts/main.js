@@ -43,6 +43,9 @@ $("#decryptbtn").on("click", function() {
         case ("ROT"):
           $("#outputbox").val(rotEncrypt(input,parseInt($("#numberofrot").val()),0));
           break;
+        case ("Baconian"):
+          $("#outputbox").val(baconianEncrypt(input,0));
+          break;
         default:
           break;
       }
