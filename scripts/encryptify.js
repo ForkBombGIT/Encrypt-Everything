@@ -70,3 +70,22 @@ function baconianEncrypt(val, enc) {
   }
   return newString;
 }
+
+function railfenceEncrypt(val,rail,enc){
+  var rails = {}
+  var index = 0;
+  var increase = true;
+  for (var i = 0; i < val.length; i++){
+    if (!(index in rails)) rails[index] = "";
+    rails[index] += val.charAt(i);
+
+    index += (increase) ? 1 : -1;
+    if (index >= (rail - 1)) increase = false;
+    else if (index == 0) increase = true;
+  }
+  return function(){
+    var newString = ""
+    for (var i = 0; i < rail; i++){newString += rails[i]}
+    return newString;
+  }
+}

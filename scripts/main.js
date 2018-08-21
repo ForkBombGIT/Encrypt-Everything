@@ -2,6 +2,9 @@ $( document ).ready(function(){
   if ($(this).find(":selected").text() == "ROT") $("#rotamount").removeAttr("hidden")
   else $("#rotamount").attr("hidden","hidden");
 
+  if ($(this).find(":selected").text() == "Rail Fence") $("#railamount").removeAttr("hidden")
+  else $("#railamount").attr("hidden","hidden");
+
   $("#outputbox").val("");
   $("#inputbox").val("");
 });
@@ -9,6 +12,9 @@ $( document ).ready(function(){
 $("#cipherselection").on('change', function(){
   if ($(this).find(":selected").text() == "ROT") $("#rotamount").removeAttr("hidden")
   else $("#rotamount").attr("hidden","hidden");
+
+  if ($(this).find(":selected").text() == "Rail Fence") $("#railamount").removeAttr("hidden")
+  else $("#railamount").attr("hidden","hidden");
 });
 
 //handles submit button
@@ -24,6 +30,9 @@ $("#encryptbtn").on("click", function() {
           break;
         case ("Baconian"):
           $("#outputbox").val(baconianEncrypt(input,1));
+          break;
+        case ("Rail Fence"):
+          $("#outputbox").val(railfenceEncrypt(input,parseInt($("#numberofrail").val()),1));
           break;
         default:
           break;
