@@ -1,7 +1,7 @@
 function rotEncrypt(val, rot, enc) {
   var newString = "";
   for (var i = 0; i < val.length; i++) {
-    if (isNaN(parseInt(val.charAt(i)), 10) && !(val.charAt(i).match(/^[.,:!?]/)) && !(val.charAt(i) == ' ' ||
+    if (isNaN(parseInt(val.charAt(i)), 10) && !(val.charAt(i).match(/^[.,'{}!@#$%^&*()/\-=+_;"<>~:!?]/)) && !(val.charAt(i) == ' ' ||
         val.charAt(i) == '\t' ||
         val.charAt(i) == '\n' ||
         val.charAt(i) == '\r')) {
@@ -49,7 +49,7 @@ function baconianEncrypt(val, enc) {
 
   if (enc){
     for (var i = 0; i < val.length; i++) {
-      if (isNaN(parseInt(val.charAt(i)), 10) && !(val.charAt(i).match(/^[.,:!?]/)) && !(val.charAt(i) == ' ' ||
+      if (isNaN(parseInt(val.charAt(i)), 10) && !(val.charAt(i).match(/^[.,'{}!@#$%^&*()/\-=+_;"<>~:!?]/)) && !(val.charAt(i) == ' ' ||
           val.charAt(i) == '\t' ||
           val.charAt(i) == '\n' ||
           val.charAt(i) == '\r')) {
@@ -59,7 +59,7 @@ function baconianEncrypt(val, enc) {
   }
   else {
     for (var i = 0; i < val.length; i++) {
-      if (isNaN(parseInt(val.charAt(i)), 10) && !(val.charAt(i).match(/^[.,:!?]/)) && !(val.charAt(i) == ' ' ||
+      if (isNaN(parseInt(val.charAt(i)), 10) && !(val.charAt(i).match(/^[.,'{}!@#$%^&*()/\-=+_;"<>~:!?]/)) && !(val.charAt(i) == ' ' ||
           val.charAt(i) == '\t' ||
           val.charAt(i) == '\n' ||
           val.charAt(i) == '\r')) {
