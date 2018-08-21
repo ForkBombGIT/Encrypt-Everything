@@ -20,7 +20,28 @@ $("#encryptbtn").on("click", function() {
       $("#inputbox").val("");
       switch(cipher){
         case ("ROT"):
-          $("#outputbox").val(rotEncrypt(input,parseInt($("#numberofrot").val())));
+          $("#outputbox").val(rotEncrypt(input,parseInt($("#numberofrot").val()),1));
+          break;
+        case ("Baconian"):
+          $("#outputbox").val(baconianEncrypt(input,1));
+          break;
+        default:
+          break;
+      }
+    }
+  }
+});
+
+//handles submit button
+$("#decryptbtn").on("click", function() {
+  var cipher = $("#cipherselection").find(":selected").text();
+  if (cipher != "") {
+    var input = $("#inputbox").val();
+    if (input != "") {
+      $("#inputbox").val("");
+      switch(cipher){
+        case ("ROT"):
+          $("#outputbox").val(rotEncrypt(input,parseInt($("#numberofrot").val()),0));
           break;
         default:
           break;
