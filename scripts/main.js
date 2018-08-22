@@ -42,8 +42,12 @@ $("#encryptbtn").on("click", function() {
 });
 
 $("#switchbtn").on("click", function() {
-  $("#inputbox").val($("#outputbox").val());
-  $("#outputbox").val("")
+  if ($("#outputbox").val().length > 0){
+      $("#inputbox").val($("#outputbox").val());
+      $("#outputbox").val("")
+
+      $("#decryptbtn").focus();
+    }
 });
 
 //handles submit button
