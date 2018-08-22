@@ -42,7 +42,8 @@ $("#encryptbtn").on("click", function() {
 });
 
 $("#switchbtn").on("click", function() {
-  if ($("#outputbox").val().length > 0){
+  console.log(($("#outputbox").val().length));
+  if ($("#outputbox").val().length != 0){
       $("#inputbox").val($("#outputbox").val());
       $("#outputbox").val("")
 
