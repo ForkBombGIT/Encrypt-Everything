@@ -14,9 +14,9 @@
 <body>
   <div class="container">
     <header>
-    <h1>ENCRYPT EVERYTHING</h1>
-    <p><i>  A simple tool for encrypting and decrypting strings</i></p>
-  </header>
+      <h1>ENCRYPT EVERYTHING</h1>
+      <p><i>  A simple tool for encrypting and decrypting strings</i></p>
+    </header>
     <label for="cipherselection">Select a Cipher:</label>
     <select id="cipherselection">
         <option selected></option>
@@ -27,21 +27,21 @@
 
     <div id="rotamount" hidden>
       <label for="numberofrot">Input # of Rotations</label>
-      <input type="number" id="numberofrot" min="0" max="25"/>
+      <input type="number" id="numberofrot" min="0" max="25" />
     </div>
 
     <div id="railamount" hidden>
       <label for="numberofrail">Input # of Rails</label>
-      <input type="number" id="numberofrail" min="0" max="25"/>
+      <input type="number" id="numberofrail" min="0" max="25" />
     </div>
 
     <label for="inputbox">Input a String:</label>
     <input id="inputbox" type="text" placeholder="ex: The cow jumped over the moon" />
     <input id="encryptbtn" value="Encrypt" type="submit">
     <input id="decryptbtn" value="Decrypt" type="submit">
-    <i class="fas fa-sync"></i>
+    <button id="switchbtn"><i class="fas fa-arrow-up"></i></button>
 
-    <label for="outputbox">Output</label>
+    <label for="outputbox">Output String:</label>
     <textarea id="outputbox" style="resize:none"></textarea>
   </div>
 
