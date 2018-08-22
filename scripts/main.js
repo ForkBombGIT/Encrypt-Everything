@@ -55,6 +55,9 @@ $("#decryptbtn").on("click", function() {
         case ("Baconian"):
           $("#outputbox").val(baconianEncrypt(input,0));
           break;
+        case ("Rail Fence"):
+          $("#outputbox").val(railfenceEncrypt(input,parseInt($("#numberofrail").val()),0));
+          break;
         default:
           break;
       }

@@ -19,32 +19,19 @@ function rotEncrypt(val, rot, enc) {
 function baconianEncrypt(val, enc) {
   var newString = "";
   var baconianConvertions = {
-    'a': 'aaaaa',
-    'b': 'aaaab',
-    'c': 'aaaba',
-    'd': 'aaabb',
-    'e': 'aabaa',
-    'f': 'aabab',
-    'g': 'aabba',
-    'h': 'aabbb',
-    'i': 'abaaa',
-    'j': 'abaab',
-    'k': 'ababa',
-    'l': 'ababb',
-    'm': 'abbaa',
-    'n': 'abbab',
-    'o': 'abbba',
-    'p': 'abbbb',
-    'q': 'baaaa',
-    'r': 'baaab',
-    's': 'baaba',
-    't': 'baabb',
-    'u': 'babaa',
-    'v': 'babab',
-    'w': 'babba',
-    'x': 'babbb',
-    'y': 'bbaaa',
-    'z': 'bbaab'
+    'a': 'aaaaa','b': 'aaaab',
+    'c': 'aaaba','d': 'aaabb',
+    'e': 'aabaa','f': 'aabab',
+    'g': 'aabba','h': 'aabbb',
+    'i': 'abaaa','j': 'abaab',
+    'k': 'ababa','l': 'ababb',
+    'm': 'abbaa','n': 'abbab',
+    'o': 'abbba','p': 'abbbb',
+    'q': 'baaaa','r': 'baaab',
+    's': 'baaba','t': 'baabb',
+    'u': 'babaa','v': 'babab',
+    'w': 'babba','x': 'babbb',
+    'y': 'bbaaa','z': 'bbaab'
   }
 
   if (enc){
@@ -65,6 +52,7 @@ function baconianEncrypt(val, enc) {
           val.charAt(i) == '\r')) {
           newString +=  _.findKey(baconianConvertions, function(v) { return v === val.substring(i,i+5);  });
           i+=4;
+
       } else newString += val.charAt(i);
     }
   }
@@ -75,16 +63,39 @@ function railfenceEncrypt(val,rail,enc){
   var rails = {}
   var index = 0;
   var increase = true;
-  for (var i = 0; i < val.length; i++){
-    if (!(index in rails)) rails[index] = "";
-    rails[index] += val.charAt(i);
+  var newString = ""
 
-    index += (increase) ? 1 : -1;
-    if (index >= (rail - 1)) increase = false;
-    else if (index == 0) increase = true;
+  if (enc){
+    for (var i = 0; i < val.length; i++){
+      if (!(index in rails)) rails[index] = "";
+      rails[index] += val.charAt(i);
+
+      index += (increase) ? 1 : -1;
+      if (index >= (rail - 1)) increase = false;
+      else if (index == 0) increase = true;
+    }
+  }
+  else{
+    var strings = {};
+    var position = 0;
+    if (val.length <= rail)
+      return val;
+
+    for (var i = 0; i < val.length; i++){
+      if (!(index in rails)) rails[index] = 0;
+      rails[index] += 1;
+
+      index += (increase) ? 1 : -1;
+      if (index >= (rail - 1)) increase = false;
+      else if (index == 0) increase = true;
+    }
+
+    for (var i = 0; i < rail; i++){
+      strings[i] = val.substring(position,position + rails[i]);
+      position += rails[i];
+    }
   }
   return function(){
-    var newString = ""
     for (var i = 0; i < rail; i++){if (i < val.length) newString += rails[i]}
     return newString;
   }
