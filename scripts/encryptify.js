@@ -85,7 +85,7 @@ function railfenceEncrypt(val,rail,enc){
   }
   return function(){
     var newString = ""
-    for (var i = 0; i < rail; i++){newString += rails[i]}
+    for (var i = 0; i < rail; i++){if (i < val.length) newString += rails[i]}
     return newString;
   }
 }
