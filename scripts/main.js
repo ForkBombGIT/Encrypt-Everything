@@ -29,27 +29,36 @@ $("#encryptbtn").on("click", function() {
   if (cipher != "") {
     var input = $("#inputbox").val();
     if (input != "") {
-      $("#inputbox").val("");
       switch (cipher) {
         case ("ROT"):
-          if (!isNaN(parseInt($("#numberofrot").val())) || $("#numberofrot").val() != "")
+          if (!isNaN(parseInt($("#numberofrot").val())) || $("#numberofrot").val() != ""){
             $("#outputbox").val(rotEncrypt(input, parseInt($("#numberofrot").val()), 1));
+            $("#inputbox").val("");
+          }
           break;
         case ("Baconian"):
           $("#outputbox").val(baconianEncrypt(input, 1));
+          $("#inputbox").val("");
           break;
         case ("Rail Fence"):
-          if (!isNaN(parseInt($("#numberofrail").val())) || $("#numberofrail").val() != "")
+          if (!isNaN(parseInt($("#numberofrail").val())) || $("#numberofrail").val() != ""){
             $("#outputbox").val(railfenceEncrypt(input, parseInt($("#numberofrail").val()), 1));
+            $("#inputbox").val("");
+          }
           break;
         case("Columnar Transposition"):
-          if ($("#colkey").val() != "")
+          if ($("#colkey").val() != ""){
             $("#outputbox").val(columnarEncrypt(input, $("#colkey").val(), 1));
+            $("#inputbox").val("");
+          }
           break;
         default:
           break;
       }
     }
+  } else{
+    $("#outputbox").val($("#inputbox").val());
+    $("#inputbox").val("");
   }
 });
 
@@ -68,22 +77,29 @@ $("#decryptbtn").on("click", function() {
   if (cipher != "") {
     var input = $("#inputbox").val();
     if (input != "") {
-      $("#inputbox").val("");
       switch (cipher) {
         case ("ROT"):
-          if (!isNaN(parseInt($("#numberofrot").val())) || $("#numberofrot").val() != "")
+          if (!isNaN(parseInt($("#numberofrot").val())) || $("#numberofrot").val() != ""){
             $("#outputbox").val(rotEncrypt(input, parseInt($("#numberofrot").val()), 0));
+            $("#inputbox").val("");
+          }
           break;
         case ("Baconian"):
           $("#outputbox").val(baconianEncrypt(input, 0));
+          $("#inputbox").val("");
           break;
         case ("Rail Fence"):
-          if (!isNaN(parseInt($("#numberofrail").val())) || $("#numberofrail").val() != "")
+          if (!isNaN(parseInt($("#numberofrail").val())) || $("#numberofrail").val() != ""){
             $("#outputbox").val(railfenceEncrypt(input, parseInt($("#numberofrail").val()), 0));
+            $("#inputbox").val("");
+          }
           break;
         default:
           break;
       }
     }
+  } else{
+    $("#outputbox").val($("#inputbox").val());
+    $("#inputbox").val("");
   }
 });
