@@ -32,16 +32,19 @@ $("#encryptbtn").on("click", function() {
       $("#inputbox").val("");
       switch (cipher) {
         case ("ROT"):
-          $("#outputbox").val(rotEncrypt(input, parseInt($("#numberofrot").val()), 1));
+          if (!isNaN(parseInt($("#numberofrot").val())) || $("#numberofrot").val() != "")
+            $("#outputbox").val(rotEncrypt(input, parseInt($("#numberofrot").val()), 1));
           break;
         case ("Baconian"):
           $("#outputbox").val(baconianEncrypt(input, 1));
           break;
         case ("Rail Fence"):
-          $("#outputbox").val(railfenceEncrypt(input, parseInt($("#numberofrail").val()), 1));
+          if (!isNaN(parseInt($("#numberofrail").val())) || $("#numberofrail").val() != "")
+            $("#outputbox").val(railfenceEncrypt(input, parseInt($("#numberofrail").val()), 1));
           break;
         case("Columnar Transposition"):
-          $("#outputbox").val(columnarEncrypt(input, $("#colkey").val(), 1));
+          if ($("#colkey").val() != "")
+            $("#outputbox").val(columnarEncrypt(input, $("#colkey").val(), 1));
           break;
         default:
           break;
@@ -68,13 +71,15 @@ $("#decryptbtn").on("click", function() {
       $("#inputbox").val("");
       switch (cipher) {
         case ("ROT"):
-          $("#outputbox").val(rotEncrypt(input, parseInt($("#numberofrot").val()), 0));
+          if (!isNaN(parseInt($("#numberofrot").val())) || $("#numberofrot").val() != "")
+            $("#outputbox").val(rotEncrypt(input, parseInt($("#numberofrot").val()), 0));
           break;
         case ("Baconian"):
           $("#outputbox").val(baconianEncrypt(input, 0));
           break;
         case ("Rail Fence"):
-          $("#outputbox").val(railfenceEncrypt(input, parseInt($("#numberofrail").val()), 0));
+          if (!isNaN(parseInt($("#numberofrail").val())) || $("#numberofrail").val() != "")
+            $("#outputbox").val(railfenceEncrypt(input, parseInt($("#numberofrail").val()), 0));
           break;
         default:
           break;
