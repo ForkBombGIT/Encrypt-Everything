@@ -1,3 +1,4 @@
+//clears inputs
 $(document).ready(function() {
   if ($(this).find(":selected").text() == "ROT") $("#rotamount").removeAttr("hidden")
   else $("#rotamount").attr("hidden", "hidden");
@@ -12,6 +13,7 @@ $(document).ready(function() {
   $("#inputbox").val("");
 });
 
+//event handler on drop down
 $("#cipherselection").on('change', function() {
   if ($(this).find(":selected").text() == "ROT") $("#rotamount").removeAttr("hidden")
   else $("#rotamount").attr("hidden", "hidden");
@@ -57,11 +59,14 @@ $("#encryptbtn").on("click", function() {
       }
     }
   } else{
-    $("#outputbox").val($("#inputbox").val());
-    $("#inputbox").val("");
+    if ($("#inputbox").val() > 0){
+      $("#outputbox").val($("#inputbox").val());
+      $("#inputbox").val("");
+    }
   }
 });
 
+//handles output to input button
 $("#switchbtn").on("click", function() {
   if ($("#outputbox").val().length != 0){
       $("#inputbox").val($("#outputbox").val());
@@ -98,8 +103,10 @@ $("#decryptbtn").on("click", function() {
           break;
       }
     }
-  } else{
-    $("#outputbox").val($("#inputbox").val());
-    $("#inputbox").val("");
+  } else {
+      if ($("#inputbox").val() > 0){
+        $("#outputbox").val($("#inputbox").val());
+        $("#inputbox").val("");
+      }
   }
 });
