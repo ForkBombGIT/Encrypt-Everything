@@ -5,6 +5,9 @@ $(document).ready(function() {
   if ($(this).find(":selected").text() == "Rail Fence") $("#railamount").removeAttr("hidden")
   else $("#railamount").attr("hidden", "hidden");
 
+  if ($(this).find(":selected").text() == "Columnar Transposition") $("#colkeyinput").removeAttr("hidden")
+  else $("#colkeyinput").attr("hidden", "hidden");
+
   $("#outputbox").val("");
   $("#inputbox").val("");
 });
@@ -15,6 +18,9 @@ $("#cipherselection").on('change', function() {
 
   if ($(this).find(":selected").text() == "Rail Fence") $("#railamount").removeAttr("hidden")
   else $("#railamount").attr("hidden", "hidden");
+
+  if ($(this).find(":selected").text() == "Columnar Transposition") $("#colkeyinput").removeAttr("hidden")
+  else $("#colkeyinput").attr("hidden", "hidden");
 });
 
 //handles submit button
@@ -34,6 +40,9 @@ $("#encryptbtn").on("click", function() {
         case ("Rail Fence"):
           $("#outputbox").val(railfenceEncrypt(input, parseInt($("#numberofrail").val()), 1));
           break;
+        case("Columnar Transposition"):
+          $("#outputbox").val(columnarEncrypt(input, $("#colkey").val(), 1));
+          break;
         default:
           break;
       }
@@ -42,7 +51,6 @@ $("#encryptbtn").on("click", function() {
 });
 
 $("#switchbtn").on("click", function() {
-  console.log(($("#outputbox").val().length));
   if ($("#outputbox").val().length != 0){
       $("#inputbox").val($("#outputbox").val());
       $("#outputbox").val("")

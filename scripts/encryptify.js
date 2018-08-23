@@ -76,27 +76,34 @@ function railfenceEncrypt(val,rail,enc){
     }
   }
   else{
-    var strings = {};
-    var position = 0;
     if (val.length <= rail)
       return val;
-
-    for (var i = 0; i < val.length; i++){
-      if (!(index in rails)) rails[index] = 0;
-      rails[index] += 1;
-
-      index += (increase) ? 1 : -1;
-      if (index >= (rail - 1)) increase = false;
-      else if (index == 0) increase = true;
-    }
-
-    for (var i = 0; i < rail; i++){
-      strings[i] = val.substring(position,position + rails[i]);
-      position += rails[i];
-    }
   }
   return function(){
     for (var i = 0; i < rail; i++){if (i < val.length) newString += rails[i]}
+    return newString;
+  }
+}
+
+function columnarEncrypt(val,key,enc){
+  index = 0;
+  var cols = {}
+
+  for (var i = 0; i < key.length; i++){
+    cols[key.charAt(i) + i.toString()] = "";
+  }
+
+  for (var i = 0; i < val.length; i++){
+    if (index == key.length) index = 0;
+    cols[key.charAt(index) + index.toString()] += val.charAt(i);
+    index++;
+  }
+
+  var keys = (Object.keys(cols).sort())
+  return function(){
+    newString = ""
+    for (var i = 0; i < keys.length; i++)
+      newString += cols[keys[i]];
     return newString;
   }
 }
