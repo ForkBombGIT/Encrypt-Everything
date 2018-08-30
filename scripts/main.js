@@ -3,6 +3,9 @@ $(document).ready(function() {
   if ($(this).find(":selected").text() == "ROT") $("#rotamount").removeAttr("hidden")
   else $("#rotamount").attr("hidden", "hidden");
 
+  if ($(this).find(":selected").text() == "Baconian") $("#baconianinfo").removeAttr("hidden")
+  else $("#baconianinfo").attr("hidden", "hidden");
+
   if ($(this).find(":selected").text() == "Rail Fence") $("#railamount").removeAttr("hidden")
   else $("#railamount").attr("hidden", "hidden");
 
@@ -17,6 +20,9 @@ $(document).ready(function() {
 $("#cipherselection").on('change', function() {
   if ($(this).find(":selected").text() == "ROT") $("#rotamount").removeAttr("hidden")
   else $("#rotamount").attr("hidden", "hidden");
+
+  if ($(this).find(":selected").text() == "Baconian") $("#baconianinfo").removeAttr("hidden")
+  else $("#baconianinfo").attr("hidden", "hidden");
 
   if ($(this).find(":selected").text() == "Rail Fence") $("#railamount").removeAttr("hidden")
   else $("#railamount").attr("hidden", "hidden");

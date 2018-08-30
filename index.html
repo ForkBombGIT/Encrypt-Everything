@@ -25,18 +25,32 @@
         <option value="railfence">Rail Fence</option>
         <option value="columnar">Columnar Transposition</option>
     </select>
-
     <div id="rotamount" hidden>
-      <label for="numberofrot">Input # of Rotations</label>
+      <div class="info">
+        <p> <i><strong>Rotational Cipher</strong> is a simple substitutional cipher where each character is 'rotated' how ever many positions forward in the alphabet (ie: Using ROT13, 'a' becomes 'n'). </i></p>
+      </div>
+      <label for="numberofrot">Input # of Rotations </label>
       <input type="number" id="numberofrot" min="0" max="25" />
     </div>
 
+    <div id="baconianinfo">
+      <div class="info">
+        <p> <i><strong>Baconian Cipher</strong> changes each character in accordance to the baconian alphabet (ie: 'a' becomes 'aaaaa'). </i></p>
+      </div>
+    </div>
+
     <div id="railamount" hidden>
+      <div class="info">
+        <p> <i><strong>Rail Fence Cipher</strong> is a transpositional cipher where each character is written diagonally along 'rails' or rows. Once the maximum or minimum amount of rows is reached, the direction of the diagonal is changed. The final string is found by concatinating each row in order (ie: Using two rails, 'test' becomes 'tset')</i></p>
+      </div>
       <label for="numberofrail">Input # of Rails</label>
       <input type="number" id="numberofrail" min="0" max="25" />
     </div>
 
     <div id="colkeyinput" hidden>
+      <div class="info">
+        <p> <i><strong>Columnar Transposition Cipher</strong> is a transpositional cipher where a word is used as the key of the cipher. Each letter in the key is used as a column and each character in the string is assigned to a column. Once all the characters are assigned, the key is arranged in alphabetical order. The columns corresponding to each letter are concatinated together in this order (ie: Using the key 'test', 'word' becomes 'orwd'). </i></p>
+      </div>
       <label for="colkey">Input a Key</label>
       <input type="text" id="colkey"/>
     </div>

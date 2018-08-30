@@ -8,12 +8,13 @@ function rotEncrypt(val, rot, enc) {
       minVal = (val.charAt(i) == val.charAt(i).toUpperCase()) ? 65 : 97;
       maxVal = (val.charAt(i) == val.charAt(i).toUpperCase()) ? 90 : 122;
       newString += ((enc) ? (((val.charCodeAt(i) + rot) <= maxVal) ? (String.fromCharCode(val.charCodeAt(i) + rot)) :
-                                                                    (String.fromCharCode((minVal + ((val.charCodeAt(i) + rot) - maxVal)) - 1))) :
+                                                                     (String.fromCharCode((minVal + ((val.charCodeAt(i) + rot) - maxVal)) - 1))) :
                              ((val.charCodeAt(i) - rot) >= minVal) ? (String.fromCharCode(val.charCodeAt(i) - rot)) :
-                                                                    (String.fromCharCode(maxVal - (minVal - (val.charCodeAt(i) - rot)) + 1)));
+                                                                     (String.fromCharCode(maxVal - (minVal - (val.charCodeAt(i) - rot)) + 1)));
     } else newString += val.charAt(i);
   }
   return newString;
+
 }
 
 function baconianEncrypt(val, enc) {
@@ -34,27 +35,14 @@ function baconianEncrypt(val, enc) {
     'y': 'bbaaa','z': 'bbaab'
   }
 
-  if (enc){
-    for (var i = 0; i < val.length; i++) {
-      if (isNaN(parseInt(val.charAt(i)), 10) && !(val.charAt(i).match(/^[.,'{}!@#$%^&*()/\-=+_;"<>~:!?]/)) && !(val.charAt(i) == ' ' ||
-          val.charAt(i) == '\t' ||
-          val.charAt(i) == '\n' ||
-          val.charAt(i) == '\r')) {
-          newString += baconianConvertions[val.charAt(i).toLowerCase()];
-      } else newString += val.charAt(i);
-    }
-  }
-  else {
-    for (var i = 0; i < val.length; i++) {
-      if (isNaN(parseInt(val.charAt(i)), 10) && !(val.charAt(i).match(/^[.,'{}!@#$%^&*()/\-=+_;"<>~:!?]/)) && !(val.charAt(i) == ' ' ||
-          val.charAt(i) == '\t' ||
-          val.charAt(i) == '\n' ||
-          val.charAt(i) == '\r')) {
-          newString +=  _.findKey(baconianConvertions, function(v) { return v === val.substring(i,i+5);  });
-          i+=4;
-
-      } else newString += val.charAt(i);
-    }
+  for (var i = 0; i < val.length; i++) {
+    if (isNaN(parseInt(val.charAt(i)), 10) && !(val.charAt(i).match(/^[.,'{}!@#$%^&*()/\-=+_;"<>~:!?]/)) && !(val.charAt(i) == ' ' ||
+        val.charAt(i) == '\t' ||
+        val.charAt(i) == '\n' ||
+        val.charAt(i) == '\r')) {
+        newString += ((enc) ? baconianConvertions[val.charAt(i).toLowerCase()] :  _.findKey(baconianConvertions, function(v) { return v === val.substring(i,i+5);  }));
+        if (!(enc)) i+= 4;
+    } else newString += val.charAt(i);
   }
   return newString;
 }
