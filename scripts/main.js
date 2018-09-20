@@ -99,12 +99,6 @@ $("#decryptbtn").on("click", function() {
           $("#outputbox").val(baconianEncrypt(input, 0));
           $("#inputbox").val("");
           break;
-        case ("Rail Fence"):
-          if (!isNaN(parseInt($("#numberofrail").val())) || $("#numberofrail").val() != ""){
-            $("#outputbox").val(railfenceEncrypt(input, parseInt($("#numberofrail").val()), 0));
-            $("#inputbox").val("");
-          }
-          break;
         default:
           break;
       }
